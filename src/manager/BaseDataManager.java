@@ -7,12 +7,13 @@ import entity.Book;
 import entity.History;
 import entity.Reader;
 import interfaces.PersistenceData;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BaseDataManager  implements PersistenceData{
@@ -26,7 +27,7 @@ public class BaseDataManager  implements PersistenceData{
         tx.begin();
             for (int i = 0; i < books.size(); i++) {
                 Book book = books.get(i);
-                if(book.getId() == null){
+                if(book.getId() == null) {
                     for (int j = 0; j < book.getAuthors().size(); j++) {
                         Author author = book.getAuthors().get(j);
                         if(author.getId() == null){
